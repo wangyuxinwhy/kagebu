@@ -1,0 +1,11 @@
+{
+  "full_name": "wangyuxin",
+  "email": "wangyuxinwhy@gmail.com",
+  "project_name": "Python Project Name",
+  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
+  "module_name": "{{ cookiecutter.project_slug }}",
+  "command_line_interface": "n",
+  "python_version": "^3.6.8",
+  "project_short_description": "Python Boilerplate contains all the boilerplate you need to create a Python package.",
+  "open_source_license": ["Not open source", "MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "GNU General Public License v3"]
+}

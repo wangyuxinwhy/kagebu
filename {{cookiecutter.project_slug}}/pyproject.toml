@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "{{cookiecutter.project_slug}}"
+version = "0.1.0"
+description = "{{cookiecutter.project_short_description}}"
+authors = ["{{cookiecutter.full_name}} {{cookiecutter.email}}"]
+
+[tool.poetry.dependencies]
+python = "{{cookiecutter.python_version}}"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+black = "^20.8b1"
+{%- if cookiecutter.command_line_interface == 'y' %}
+typer = "^0.3.2"
+{%- endif %}
+
+[[tool.poetry.source]]
+name = "aliyun"
+url = "http://mirrors.aliyun.com/pypi/simple/"
+default = true
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
