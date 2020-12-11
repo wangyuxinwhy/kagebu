@@ -1,6 +1,6 @@
 {
   "full_name": "wangyuxin",
-  "email": "wangyuxinwhy@gmail.com",
+  "email": "yuxin_wang_94@163.com",
   "project_name": "Python Project Name",
   "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
   "module_name": "{{ cookiecutter.project_slug }}",
