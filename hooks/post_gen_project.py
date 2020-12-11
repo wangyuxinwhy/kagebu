@@ -40,6 +40,7 @@ if __name__ == "__main__":
         env_name = n.rsplit("/", 1)[-1]
         if env_name == target_env_name:
             subprocess.run(["poetry", "env", "use", f"{n}/bin/python"])
+            subprocess.run(["poetry", "install"])
             break
     else:
         print("========= ERROR =========")
