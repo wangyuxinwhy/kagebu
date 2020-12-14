@@ -1,4 +1,4 @@
-"""Console script for {{cookiecutter.project_slug}}."""
+"""Console script for {{cookiecutter.module_name}}."""
 import typer
 
 app = typer.Typer()

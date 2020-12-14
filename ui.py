@@ -53,7 +53,6 @@ info = {
     "email": email,
     "project_name": project_name,
     "project_short_description": project_short_description,
-    "project_slug": module_name,
     "module_name": module_name,
     "conda_env_path": conda_env_path,
     "python_version": "^" + python_version,
