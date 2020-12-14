@@ -1,12 +1,8 @@
 # -*- coding: utf-8 -*-
-import io
-import json
-import subprocess
 from pathlib import Path
-from tempfile import NamedTemporaryFile
 
 import streamlit as st
-from cookiecutter.main import cookiecutter
+from cookiecutter.generate import generate_files
 
 
 st.subheader("Meta info")
@@ -41,9 +37,14 @@ st.subheader("Preview")
 st.write(info)
 
 st.subheader("Create Project")
-project_root_dir = st.text_input("输入 Project Root Dir:", str(Path.home().resolve()))
+project_root_dir = st.text_input("输入 Project Root Dir:", str(Path.home().resolve() / "workspace"))
 if st.button("Create"):
-    temp_file = NamedTemporaryFile()
-    with open(temp_file.name, "w") as f:
-        f.write(json.dumps(info))
-    cookiecutter(".", config_file=temp_file.name)
+    context = {"cookiecutter": info}
+    kagebu_dir = Path(".").resolve()
+    context['cookiecutter']['_template'] = kagebu_dir
+    result = generate_files(
+        kagebu_dir,
+        context=context,
+        output_dir=project_root_dir,
+    )
+    st.write(f"create project in {result}")

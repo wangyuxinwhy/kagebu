@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "kagebu"
+version = "0.1.0"
+description = "python 项目模板，使用 conda、poetry、typer and cookiecutter。提供内置 ui 界面。"
+authors = ["wangyuxin <wangyuxin@mokahr.com>"]
+license = "Apache-2.0"
+
+[tool.poetry.dependencies]
+python = "^3.6.8"
+cookiecutter = "^1.7.2"
+streamlit = "^0.72.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+black = "^20.8b1"
+
+[[tool.poetry.source]]
+name = "aliyun"
+url = "http://mirrors.aliyun.com/pypi/simple/"
+default = true
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
