@@ -65,7 +65,7 @@ st.subheader("Create Project")
 project_root_dir = st.text_input("输入 Project Root Dir:", str(Path.home().resolve() / "workspace"))
 if st.button("Create"):
     if use_new:
-        subprocess.run(["conda", "create", "-n", new_env_name, f"python={python_version}"])
+        subprocess.run(["conda", "create", "-n", new_env_name, f"python={python_version}", "--yes"])
     context = {"cookiecutter": info}
     kagebu_dir = Path(".").resolve()
     context['cookiecutter']['_template'] = kagebu_dir

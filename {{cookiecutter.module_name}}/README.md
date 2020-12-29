@@ -9,4 +9,6 @@ conda activate <env_name>
 poetry add <package_name>
 # install all dependencies
 poetry install
+# export environment setting
+conda env export --from-history > environment.yaml
 ```
