@@ -1,4 +1,6 @@
 # Kagebu
+![](https://socialify.git.ci/wangyuxinwhy/kagebu/image?description=1&font=Raleway&forks=1&issues=1&language=1&owner=1&pattern=Floating%20Cogs&pulls=1&stargazers=1&theme=Light)
+
 python 项目模板基于 cookiecutter、poetry、typer & conda。
 
 - 使用 miniconda 做 Python 版本和虚拟环境的管理
