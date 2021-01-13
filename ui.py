@@ -13,7 +13,7 @@ def get_python_version_from_env_path(env_path):
     binary_path = str(Path(env_path) / "bin" / "python")
     sub_result = subprocess.run([binary_path, "--version"], capture_output=True)
     output = sub_result.stdout.decode("utf-8") + sub_result.stderr.decode("utf-8")
-    finds = re.findall(r'[Pp]ython\s?([23]\.\d{1,2})\.\d{1,2}', output)
+    finds = re.findall(r"[Pp]ython\s?([23]\.\d{1,2})\.\d{1,2}", output)
     if finds:
         return finds[0]
     else:
@@ -27,8 +27,20 @@ email = col2.text_input("email", "yuxin_wang_94@163.com")
 st.subheader("Project info")
 col21, col22, col23 = st.beta_columns(3)
 project_name = col21.text_input("project_name", "Python Project Name")
-module_name = col22.text_input("module_name", project_name.lower().replace(' ', '_').replace('-', '_'))
-open_source_license = col23.selectbox("license", ["Not open source", "MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "GNU General Public License v3"])
+module_name = col22.text_input(
+    "module_name", project_name.lower().replace(" ", "_").replace("-", "_")
+)
+open_source_license = col23.selectbox(
+    "license",
+    [
+        "Not open source",
+        "MIT license",
+        "BSD license",
+        "ISC license",
+        "Apache Software License 2.0",
+        "GNU General Public License v3",
+    ],
+)
 project_short_description = st.text_area("project_short_description", "description...")
 st.subheader("Extra Options")
 command_line_interface = st.checkbox("Command Line Interface")
@@ -41,7 +53,9 @@ if use_new:
     with col41:
         new_env_name = st.text_input("Env Name")
     with col42:
-        python_version = st.selectbox("Python Version", ["2.7", "3.6", "3.7", "3.8"], index=1)
+        python_version = st.selectbox(
+            "Python Version", ["2.7", "3.6", "3.7", "3.8"], index=1
+        )
     conda_env_path = str(Path(context.envs_dirs[0]) / new_env_name)
 else:
     conda_env_path = st.selectbox("Conda Envs", conda_env_paths)
@@ -57,18 +71,22 @@ info = {
     "conda_env_path": conda_env_path,
     "python_version": "^" + python_version,
     "command_line_interface": command_line_interface,
-    "open_source_license": open_source_license
+    "open_source_license": open_source_license,
 }
 st.write(info)
 
 st.subheader("Create Project")
-project_root_dir = st.text_input("输入 Project Root Dir:", str(Path.home().resolve() / "workspace"))
+project_root_dir = st.text_input(
+    "输入 Project Root Dir:", str(Path.home().resolve() / "workspace")
+)
 if st.button("Create"):
     if use_new:
-        subprocess.run(["conda", "create", "-n", new_env_name, f"python={python_version}", "--yes"])
+        subprocess.run(
+            ["conda", "create", "-n", new_env_name, f"python={python_version}", "--yes"]
+        )
     context = {"cookiecutter": info}
     kagebu_dir = Path(".").resolve()
-    context['cookiecutter']['_template'] = kagebu_dir
+    context["cookiecutter"]["_template"] = kagebu_dir
     result = generate_files(
         kagebu_dir,
         context=context,
