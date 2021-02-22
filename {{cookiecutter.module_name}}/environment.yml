@@ -1,0 +1,5 @@
+name: {{cookiecutter.module_name}}
+channels:
+  - defaults
+dependencies:
+  - python={{cookiecutter.python_version}}

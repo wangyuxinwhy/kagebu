@@ -4,11 +4,27 @@
 
 ```shell script
 # use virtual env 使用 conda 来控制环境 poetry 代替 pip
-conda activate <env_name>
+make create-env
+
 # install 3rd package
 poetry add <package_name>
+poetry add --dev <package_name>
+
 # install all dependencies
-poetry install
+make install
+
 # export environment setting
-conda env export --from-history > environment.yml
+make export-env
+
+# foramt all python file
+make format
+
+# test 
+make test
+
+# lint code
+make lint
+
+# init docs
+sphinx-quickstart
 ```
